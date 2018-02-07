@@ -1,0 +1,30 @@
+	<?php
+// A placeholder for items from other sections mapped to this item. 
+// Content will be added "lazy-loading" with AJAX.
+
+class viewMaplingPlholder{
+	function __construct($sectiondata, $item, $mapling_section) {
+		
+		global $action; 
+		
+		$this->html = '<td>'; 
+		 
+		// If viewing this in a big table, we want a to control tr height
+		if ($action != 'viewItem') $this->html.= '<div class="tr_height">'. PHP_EOL; 
+		
+		// attention - we need to define section so this also works in a detail table of maplings of other sections
+		
+		$this->html.= '<div class="lazyMaplings" item_section="' . $sectiondata->section . '" item_id="'.$item->id.'" mapling_section="'.$mapling_section.'">';
+		$this->html.= '<img src="/system/img/loader.svg">'; 							// This will be replaced with lazy content
+		$this->html.= '</div>'. PHP_EOL;
+		$this->html.= (new viewButton('map2', $item->id, $mapling_section))->html; 		// AJAX add more maplings
+		if ( $mapling_section == 'photos') $this->html.= (new viewButton('urlphoto', $item->id))->html; 		// AJAX add more maplings
+		if ($action != 'viewItem') $this->html.= '</div>'. PHP_EOL; 	
+		
+		if ($action != 'viewItem') $this->html.= '</div>'; 	
+		
+		$this->html.= '</td>';
+		
+	}
+}
+?>

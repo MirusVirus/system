@@ -1,0 +1,221 @@
+/******* General *******/ 
+
+* { box-sizing: border-box; vertical-align:top; font-family: 'Overpass', Arial, sans-serif; }
+
+html, body {
+	height: 100%;
+	font-family: 'Overpass', Arial, sans-serif;
+	font-size: 95%;
+	margin: 0;
+	vertical-align:top;
+}
+a {	text-decoration: none; }
+span {
+	margin: 0;
+	padding: 0
+}
+/*** basic formats for fonts and backgrounds ***/
+
+h1 		{ }
+h2 		{ font-weight: 700; margin:8px 0; }
+h3 		{ font-size:18px; margin:6px 0 3px 0; }
+.tiny 	{ font-size: 12px; color: white; }
+.full 	{ display: block; width: 100%; padding: 10px; margin: 0 0 15px 0; } /* more in config.css */
+
+.head 	{ font-weight: bold; font-size: 120%; }
+fieldset { display: inline-block; max-width: 100%; }
+fieldset.half 		{ width: 47%; }
+fieldset.overview 	{ width: 30%; }
+
+.comment. comment a { color:green; 	font-weight:lighter;	font-size: 10px; display: block; }
+.uh 				{ color:red; 	font-weight:bold;  }
+.hm 				{ color:yellow; font-weight:normal;		font-size: 15px;  }
+.go 				{ color: green;	font-weight: bold; }
+
+.uoh 	{ background: yellow; }
+.info 	{ background: rgba(255,255,180,.9);	box-shadow: 2px 3px 10px 0 rgba(0,0,0,0.6); }
+
+
+/****** Interactive Elements ******/
+
+input, select, textarea { border:none; background:rgb(255,255,240); box-shadow: inset 1px 1px 4px 0px rgba(107,107,107,1); font-size:14px; word-wrap:break-word; word-break:break-all; }
+input[type=text], textarea { width: 420px; }
+.tr_height input[type=text] { width: 200px; } /* when does this happen?? */
+.msg_main input, .msg_main input[type=submit] { margin:10px 0; width:100%; text-align:center; font-size:20px; }
+
+button, input[type=submit] { margin:2px; padding:5px; font-size:15px; border:0;	color:white; background:rgba(0,0,0,.7);	line-height:1; cursor:pointer; box-shadow: 1px 2px 5px 0 rgba(0,0,0,0.5); }
+table button, table input[type=submit] { padding:2px; font-size:11px; }
+button:hover, input[type=submit]:hover 										  { color: yellow; }
+
+
+
+div.shortie { display:inline-block;	margin:5px 3px;	padding: 0px 2px; color:black; background: rgba(255,255,255,.9); font-weight: 300;	box-shadow: 1px 2px 2px 0 rgba(0,0,0,0.2); }
+span.remove 		{ color: gray; cursor: pointer; }
+span.remove:hover 	{ color: red; }
+
+.status { float: right; margin-right: 20px;	font-size: 10px; }
+.status img { height: 40px;	width: auto; }
+
+#msgbox { /* message box, not displayed unless called by js */
+	position: fixed; overflow: auto; display: none;	width: 240px; height: auto;	max-height: 90vh; z-index: 100;
+	bottom: 20px; right: 20px;	padding: 5px; font-size: 10px;	cursor: pointer; }
+.msgbreak {	display: block;	width: 100%; }
+
+select 		{ max-width: 120px; }
+h2 select 	{ max-width: 300px; font-size:inherit; font-weight:inherit; }
+
+.miniicon 	{ width: auto; height: 12px; margin: 2px; cursor: pointer; }
+.mediumicon { width: auto; height: 24px; margin: 4px; cursor: pointer; }
+.editbutton { visibility: hidden; } /* start edit mode */
+.editbutton2 { display:none; } /*end edit mode */
+td:hover .editbutton { visibility: visible; }
+
+
+/******* Static dialogues *******/
+
+.msg { position: relative; display:block; margin:60px auto; padding:5px 20px; box-shadow: 1px 2px 7px 0 rgba(0,0,0,0.4); }
+.msg_main {	 width: 600px;   }
+.msg_full {  width: 96%; max-width:1860px; text-align:center;}
+
+.indexmsg {	display:block;
+	left: 50%;
+	transform: translateX(-50%);
+	width: auto;
+	max-width: 95vw;
+	position: relative; 
+	margin:30px auto;
+	padding:5px 20px; 
+	background: rgba(255,255,180,.9);
+	font-size: 120%; 
+     
+}
+
+
+/******* Table layout *******/ 
+
+table {	table-layout: fixed; }
+table, th, tr {
+	border: 2px solid rgb(255,255,255);
+	background: rgba(236,236,236,1);
+	border-collapse: collapse;
+	vertical-align: top;
+	text-align: left;
+	padding: 3px;
+	font-size: 11px
+}
+table, th, tr, td { max-width: 97vw; border: 2px solid rgb(255,255,255); word-wrap: break-word; }
+table.input, .input th, .input td {
+	border: 1px solid white;
+	border-collapse: collapse;
+	vertical-align: top;
+	text-align: left; 
+	padding: 6px;
+}
+thead th { color: white; background: black; cursor: pointer; } /* table head; pointer 'cause it's sortable */
+
+td.label { color: white; background: black; font-weight: bold; }
+.tr_height {  /* div controlling table row height */
+	max-height: 50px;
+	overflow: hidden;
+}
+.photos .tr_height {  /* a little more height for photos */
+	max-height: 110px;
+}
+.max, .photos .max {  /* expanded table row */
+	max-height: 10000px;
+}
+
+.rotate90 { /* rotates by 90 degrees */
+	transform: rotate(90deg);
+}
+
+.nowrap { white-space: nowrap; }
+
+img 		{ width: 120px;	height: auto; }
+.bigimg img { width: 180px; }
+.inline img { width: auto; 	height: 80px; }
+.modal img 	{ 								margin: 0 2px; }
+
+div.lazy { width: 150px; height: 30px; background: yellow; }
+
+
+.modal button, .modal img {
+	cursor: pointer;
+}
+
+
+.thumb { width: 100px; height: auto; }
+
+
+
+
+
+/* Tiles */
+.tile {	position:relative; display:inline-block; width:auto; height:auto; margin:10px;	padding:0 5px 5px 5px;	background:black; color:white; box-shadow:1px 2px 5px 0 rgba(0,0,0,0.5); }
+.tile.meep { border:3px solid yellow; }
+.more { display:none; }
+
+.containercontainer {
+	position: relative; display: block;
+	width: 95vw;
+	max-width: 1400px;
+	
+	margin:30px auto;
+	background: rgba(255,255,180,.9);
+	text-align:center;
+	font-size: 120%; 
+     
+}
+.container {
+	position:relative; 
+	display:inline-block;
+	text-align:left;
+	width:100%;
+	vertical-align:top;
+}
+.box { position:relative; display:inline-block; background:none; width:24%; vertical-align:top; text-align:center;	padding:8px; }
+.box textarea { width:100%; }
+
+.conditional { display:none;  
+-webkit-transition: opacity 1s ease-in-out;
+  -moz-transition: opacity 1s ease-in-out;
+  -ms-transition: opacity 1s ease-in-out;
+  transition: opacity 1s ease-in-out; }
+ 
+
+.mouseover {
+	display:none;
+}
+.interview:hover .mouseover {
+	display:block; 
+}
+
+.sep_horiz { display:block; margin: 10px 10px; width:auto; height:0; border:1px solid white; }
+
+
+/* The Modal (background) */
+.modal {
+	display: none; 						/* Hidden by default */
+	position: fixed; 					/* Stay in place */
+	z-index: 100; 						/* Sit on top */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%; 						/* Full width */
+	height: 100%; 						/* Full height */
+	overflow: auto; 					/* Enable scroll if needed */
+	background-color: rgb(0,0,0); 		/* Fallback color */
+	background-color: rgba(0,0,0,0); 	/* Black w/ opacit 0y */
+}
+.dialog {
+	margin: 15% auto;
+	padding: 5px;
+	width: auto;
+	max-width: 600px;
+}
+.dialog.dynamic { max-width: 90vw; }
+.close 		{ float: right;   color: white; font-size: 28px; font-weight: bold; cursor: pointer; }
+.close:hover, .close:focus 	{ color: yellow; text-decoration: none; }
+
+.dialog_head { padding: 2px 16px; background: black; color: white; }
+.dialog_body { padding: 10px 16px; }

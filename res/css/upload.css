@@ -1,0 +1,41 @@
+/* File upload via drag & drop */
+
+#uploadzone {
+	position: relative;
+	display: block;
+	height: 200px;
+	padding: 15px;
+	width: 90vw;
+	max-width: 800px;
+	background: silver;
+	outline: 2px dashed black;
+	outline-offset: -10px;
+}
+#uploadzone.dragover {
+	background: skyblue;
+}
+.dragndrop_icon {
+	position: absolute;
+	display: block;
+	left: 50%;
+	margin-left: -60px;
+}
+.fileicon {
+	position: relative;
+	display: inline-block;
+	width: auto;
+	height: 20px;
+	margin: 2px;
+	padding: 1px 12px;
+	background: rgba(255,255,255,.8);
+	z-index: 100;
+}
+.progressbar {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 50%;
+	background: rgba(0,255,0,.3);
+}
